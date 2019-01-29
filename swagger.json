@@ -1,0 +1,47 @@
+{
+  "consumes": [
+    "text/plain"
+  ],
+  "produces": [
+    "text/plain"
+  ],
+  "schemes": [
+    "http"
+  ],
+  "swagger": "2.0",
+  "info": {
+    "version": "0.0.1"
+  },
+  "host": "localhost:8080",
+  "paths": {
+    "/user/{id}": {
+      "get": {
+        "description": "Returns a user object",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "user"
+        ],
+        "operationId": "User",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "Id of the user",
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The user object"
+          }
+        }
+      }
+    }
+  }
+}
