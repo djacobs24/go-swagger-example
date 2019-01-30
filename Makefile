@@ -1,7 +1,10 @@
-.PHONY: spec serve ui
+.PHONY: spec valid swag
 
 spec:
-	cd cmd/serve/; swagger generate spec -o ../../swagger.json
+	cd cmd/serve/; swagger generate spec --scan-models -o ../../swagger.json
+
+valid:
+	swagger validate ./swagger.json
 
 swag:
-	swagger serve https://raw.githubusercontent.com/djacobs24/go-swagger-example/master/swagger.json
+	swagger serve ./swagger.json
