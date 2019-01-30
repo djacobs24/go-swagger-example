@@ -1,9 +1,9 @@
 {
   "consumes": [
-    "text/plain"
+    "application/json"
   ],
   "produces": [
-    "text/plain"
+    "application/json"
   ],
   "schemes": [
     "http"
