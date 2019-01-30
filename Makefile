@@ -1,4 +1,7 @@
-.PHONY: spec valid swag
+.PHONY: clean spec valid swag
+
+clean:
+	rm ./swagger.json
 
 spec:
 	cd cmd/serve/; swagger generate spec --scan-models -o ../../swagger.json
