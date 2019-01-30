@@ -16,6 +16,4 @@ Go Swagger Example inclues a [makefile](https://github.com/djacobs24/go-swagger-
 
 `make spec` - generates the Swagger JSON spec
 
-`make serve` - compiles and runs the program
-
-`make ui` - runs the Swagger API Docker container
+`make swag` - serves swagger ui for the spec
