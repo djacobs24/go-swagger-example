@@ -1,35 +1,78 @@
 package user
 
-// swagger:operation GET /user/{id} user User
+// swagger:operation GET /user/{id} user GetUser
 //
-// Returns a user object
+// Get one user by ID
 // ---
-// consumes:
-// - application/json
-// produces:
-// - application/json
 // parameters:
 // - name: id
 //   in: path
-//   description: Id of the user
+//   description: ID of the user
 //   required: true
 //   type: string
 // responses:
 //   '200':
 //     description: The user object
-//     type: string
+//     schema:
+//       $ref: "#/definitions/user"
 func GetUser() {
 
 }
 
-func postUser() {
+// swagger:operation POST /user user PostUser
+//
+// Create one user
+// ---
+// parameters:
+// - name: user
+//   in: body
+//   description: The user's first and last name
+//   required: true
+//   schema:
+//     $ref: "#/definitions/user"
+// responses:
+//   '200':
+//     description: The user object
+//     schema:
+//       $ref: "#/definitions/user"
+func PostUser() {
 
 }
 
-func putUser() {
+// swagger:operation PUT /user/{id} user PutUser
+//
+// Update one user by ID.
+// ---
+// parameters:
+// - name: id
+//   in: path
+//   description: ID of the user
+//   required: true
+//   type: string
+// responses:
+//   '200':
+//     description: The user object
+//     schema:
+//       $ref: "#/definitions/user"
+func PutUser() {
 
 }
 
-func deleteUser() {
+// swagger:operation DELETE /user/{id} user DeleteUser
+//
+// Delete one user by ID.
+// ---
+// parameters:
+// - name: id
+//   in: path
+//   description: ID of the user
+//   required: true
+//   type: string
+// responses:
+//   '200':
+//     description: The user object
+//     schema:
+//       $ref: "#/definitions/user"
+func DeleteUser() {
 
 }
