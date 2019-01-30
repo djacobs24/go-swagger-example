@@ -6,31 +6,62 @@
     "application/json"
   ],
   "schemes": [
-    "http"
+    "http",
+    "https"
   ],
   "swagger": "2.0",
   "info": {
+    "description": "The purpose of this application is to provide an application\nthat is using plain go code to define an API\n\nThis should demonstrate all the possible comment annotations\nthat are available to turn go code into a fully compliant swagger 2.0 spec",
+    "title": "Go Swagger Example API",
+    "termsOfService": "There are no TOS at this moment.",
+    "contact": {
+      "name": "David Jacobs",
+      "email": "dav.david.jacobs@gmail.com"
+    },
     "version": "0.0.1"
   },
-  "host": "localhost:8080",
+  "host": "localhost",
+  "basePath": "/",
   "paths": {
-    "/user/{id}": {
-      "get": {
-        "description": "Returns a user object",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
+    "/user": {
+      "post": {
+        "description": "Create one user",
         "tags": [
           "user"
         ],
-        "operationId": "User",
+        "operationId": "PostUser",
+        "parameters": [
+          {
+            "description": "The user's first and last name",
+            "name": "user",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/user"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The user object",
+            "schema": {
+              "$ref": "#/definitions/user"
+            }
+          }
+        }
+      }
+    },
+    "/user/{id}": {
+      "get": {
+        "description": "Get one user by ID",
+        "tags": [
+          "user"
+        ],
+        "operationId": "GetUser",
         "parameters": [
           {
             "type": "string",
-            "description": "Id of the user",
+            "description": "ID of the user",
             "name": "id",
             "in": "path",
             "required": true
@@ -38,10 +69,91 @@
         ],
         "responses": {
           "200": {
-            "description": "The user object"
+            "description": "The user object",
+            "schema": {
+              "$ref": "#/definitions/user"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "user"
+        ],
+        "summary": "Update one user by ID.",
+        "operationId": "PutUser",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "ID of the user",
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The user object",
+            "schema": {
+              "$ref": "#/definitions/user"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "user"
+        ],
+        "summary": "Delete one user by ID.",
+        "operationId": "DeleteUser",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "ID of the user",
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The user object",
+            "schema": {
+              "$ref": "#/definitions/user"
+            }
           }
         }
       }
+    }
+  },
+  "definitions": {
+    "user": {
+      "description": "User user",
+      "type": "object",
+      "properties": {
+        "job_title": {
+          "description": "job_title",
+          "type": "string",
+          "x-go-name": "JobTitle"
+        },
+        "location": {
+          "description": "location",
+          "type": "string",
+          "x-go-name": "Location"
+        },
+        "name": {
+          "description": "name",
+          "type": "string",
+          "x-go-name": "Name"
+        },
+        "username": {
+          "description": "username",
+          "type": "string",
+          "x-go-name": "Username"
+        }
+      },
+      "x-go-name": "User",
+      "x-go-package": "github.com/djacobs24/go-swagger-example/models"
     }
   }
 }
