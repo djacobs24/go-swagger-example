@@ -32,7 +32,7 @@
         "operationId": "PostUser",
         "parameters": [
           {
-            "description": "The user's first and last name",
+            "description": "The user object",
             "name": "user",
             "in": "body",
             "required": true,

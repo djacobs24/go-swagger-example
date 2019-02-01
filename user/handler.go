@@ -26,7 +26,7 @@ func GetUser() {
 // parameters:
 // - name: user
 //   in: body
-//   description: The user's first and last name
+//   description: The user object
 //   required: true
 //   schema:
 //     $ref: "#/definitions/user"
